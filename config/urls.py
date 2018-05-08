@@ -5,6 +5,7 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
 from rest_framework_jwt.views import obtain_jwt_token
+from nomad_coders import views
 
 
 urlpatterns = [
@@ -22,6 +23,7 @@ urlpatterns = [
     url(r"^images/", include('nomad_coders.images.urls', namespace='images')),
     url(r"^notifications/", include('nomad_coders.notifications.urls', namespace='notifications')),
     url(r"^accounts/", include("allauth.urls")),
+    url(r"^", views.ReactAppView.as_view()),
     # Your stuff: custom urls includes go here
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
