@@ -7,6 +7,7 @@
     "react-router-redux": "^5.0.0-alpha.9",
     "reactotron-react-js": "^1.13.0",
     "redux-i18n": "^1.5.13",
+    "reset-css": "^3.0.0",
     "sass-loader": "^7.0.1"
   },
   "devDependencies": {
