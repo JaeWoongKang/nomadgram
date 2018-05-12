@@ -5,7 +5,7 @@ import Container from "./container";
 const mapStateToProps = (state, ownProps) => {
   const { user } = state;
   return{
-    inLoggedIn : user.isLoggedIn
+    isLoggedIn : user.isLoggedIn
   }
 }
 

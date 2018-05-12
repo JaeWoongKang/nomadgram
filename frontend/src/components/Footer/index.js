@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 import styles from "./styles.scss"
 
 
@@ -29,7 +29,7 @@ const Footer = (props, context) => (
 );
 
 Footer.contextTypes = {
-    t:PropTypes.func.isRequired
+    t:propTypes.func.isRequired
 };
 
 

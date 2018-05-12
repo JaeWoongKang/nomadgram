@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 import { Route, Switch } from "react-router-dom";
 import "./styles.scss";
 import Auth from "components/Auth";
@@ -12,7 +12,7 @@ const App = props => [
 ];
 
 App.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired
+  isLoggedIn: propTypes.string.isRequired
 };
 
 const PrivateRoutes = props => (

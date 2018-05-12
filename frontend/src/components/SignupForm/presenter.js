@@ -1,7 +1,7 @@
 import React from "react";
 import Ionicon from "react-ionicons";
 import formStyles from "shared/formStyles.scss";
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 
 const SignupForm = (props, context) => (
     <div className={formStyles.formComponent}>
@@ -13,26 +13,57 @@ const SignupForm = (props, context) => (
       </button>
       <span className={formStyles.divider}>{context.t("or")}</span>
       <form className={formStyles.form}>
-        <input type="email" placeholder={context.t("Email")} className={formStyles.textInput} />
-        <input type="text" placeholder={context.t("Full Name")} className={formStyles.textInput} />
+        <input 
+          type="email" 
+          placeholder={context.t("Email")} 
+          className={formStyles.textInput} 
+          onChange={props.handleInputChange} 
+          name="email"
+        />
+        <input
+          type="text" 
+          placeholder={context.t("Full Name")} 
+          className={formStyles.textInput} 
+          onChange={props.handleInputChange}
+          name="fullname"
+        />
+         
         <input
           type="username"
           placeholder={context.t("Username")}
           className={formStyles.textInput}
+          onChange={props.handleInputChange}
+          name="username"
         />
         <input
           type="password"
           placeholder={context.t("Password")}
           className={formStyles.textInput}
+          onChange={props.handleInputChange}
+          name="password"
         />
-        <input type="submit" value={context.t("Sign up")} className={formStyles.button} />
+        <input 
+          name="signupSubmit"
+          type="submit" 
+          value={context.t("Sign up")} 
+          className={formStyles.button} 
+          onSubmit={props.handleSubmit}/>
       </form>
       <p className={formStyles.terms}>
         {context.t("By signing up, you agree to our <span>Terms & Privacy Policy</span>.")}
       </p>
     </div>
   );
+  SignupForm.propTypes = {
+    emailValue:propTypes.string.isRequired,
+    fullNameValue:propTypes.string.isRequired,
+    usernameValue:propTypes.string.isRequired,
+    passwordValue:propTypes.string.isRequired,
+    handleInputChange : propTypes.func.isRequired,
+    handleSubmit:propTypes.func.isRequired
+  };  
+
   SignupForm.contextTypes = {
-    t:PropTypes.func.isRequired
+    t:propTypes.func.isRequired
   };
   export default SignupForm;
