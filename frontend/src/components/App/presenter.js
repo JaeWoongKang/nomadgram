@@ -12,7 +12,7 @@ const App = props => [
 ];
 
 App.propTypes = {
-  isLoggedIn: propTypes.string.isRequired
+  isLoggedIn: propTypes.bool.isRequired
 };
 
 const PrivateRoutes = props => (
