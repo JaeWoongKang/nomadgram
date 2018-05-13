@@ -25,6 +25,10 @@
     }
     .button {
       @include blueButton();
+      i {
+          font-size: 18px;
+           margin-right: 5px;
+         }
       svg {
         margin-right: 10px;
       }
@@ -57,14 +61,46 @@
         opacity: 0.8;
       }
     }
+    .facebook-signup-link{
+      display: flex;
+      align-items: center;
+      color: #385185;
+      justify-content: center;
+      margin-bottom: 25px;
+      cursor:pointer;
+      font-size: $normal-font-size;
+      border:0;
+      background-color: $dark-blue;
+      i{
+        margin-right:5px;
+      }
+      svg {
+        margin-right: 5px;
+      }
+      &:focus,
+      &:active{
+        outline:none;
+      }
+    }
     .facebook-link {
       display: flex;
       align-items: center;
       color: #385185;
       justify-content: center;
       margin-bottom: 25px;
+      cursor:pointer;
+      font-size: $normal-font-size;
+      border:0;
+      background-color: white;
+      i{
+        margin-right:5px;
+      }
       svg {
         margin-right: 5px;
+      }
+      &:focus,
+      &:active{
+        outline:none;
       }
     }
     .forgot-link {

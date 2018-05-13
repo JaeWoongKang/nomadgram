@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import propTypes from "prop-types";
 import LoginForm from "./presenter";
 
 class Container extends Component{
@@ -6,13 +7,21 @@ class Container extends Component{
         username:"",
         password:""
     }
+
+    static propTypes = {
+        facebookLogin: propTypes.func.isRequired
+    }
+
     render(){
         const{username,password} = this.state;
         return <LoginForm 
                     handleInputChange={this._handleInputChange}
                     handleSubmit = {this._handleSubmit}
+                    handleFacebookLogin = {this._handleFacebookLogin}
                     usernameValue={username} 
-                    passwordValue={password}/>;
+                    passwordValue={password}
+
+                />;
     }
     _handleInputChange = event =>{
         const {target:{value,name}} = event;
@@ -25,6 +34,10 @@ class Container extends Component{
         event.preventDefault();
         console.log(this.setState);
         //리덕스 액션
+    }
+    _handleFacebookLogin = response => {
+        const { facebookLogin } = this.props;
+        facebookLogin(response.accessToken);
     }
 }
 
