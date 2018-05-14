@@ -33,7 +33,7 @@ const LoginForm = (props, context) => (
       <span className={formStyles.facebookLink}>
       <FacebookLogin
         appId="170159707011046"
-        autoLoad={true}
+        autoLoad={false}
         fields="name,email,picture"
         callback={props.handleFacebookLogin} 
         cssClass={formStyles.facebookLink}

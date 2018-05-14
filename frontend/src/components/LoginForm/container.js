@@ -9,7 +9,8 @@ class Container extends Component{
     }
 
     static propTypes = {
-        facebookLogin: propTypes.func.isRequired
+        facebookLogin: propTypes.func.isRequired,
+        usernameLogin: propTypes.func.isRequired
     }
 
     render(){
@@ -31,9 +32,11 @@ class Container extends Component{
         });
     };
     _handleSubmit = event => {
-        event.preventDefault();
-        console.log(this.setState);
         //리덕스 액션
+        const { usernameLogin } = this.props;
+        const { username, password } = this.state;
+        event.preventDefault();
+        usernameLogin( username, password );
     }
     _handleFacebookLogin = response => {
         const { facebookLogin } = this.props;

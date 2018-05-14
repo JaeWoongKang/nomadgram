@@ -9,7 +9,7 @@ import environ
 
 # (nomadgram/config/settings/base.py - 3 = nomadgram/)
 ROOT_DIR = environ.Path(__file__) - 3
-APPS_DIR = ROOT_DIR.path('nomadgram')
+APPS_DIR = ROOT_DIR.path('nomad_coders')
 
 # Load operating system environment variables and then prepare to use them
 env = environ.Env()
@@ -60,10 +60,10 @@ THIRD_PARTY_APPS = [
 # Apps specific for this project go here.
 LOCAL_APPS = [
     # custom users app
-    'nomadgram.users.apps.UsersConfig',
+    'nomad_coders.users.apps.UsersConfig',
     # Your stuff: custom apps go here
-    'nomadgram.images.apps.ImagesConfig',  # images app
-    'nomadgram.notifications.apps.NotificationsConfig'  # notifications app
+    'nomad_coders.images.apps.ImagesConfig',  # images app
+    'nomad_coders.notifications.apps.NotificationsConfig'  # notifications app
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -85,7 +85,7 @@ MIDDLEWARE = [
 # MIGRATIONS CONFIGURATION
 # ------------------------------------------------------------------------------
 MIGRATION_MODULES = {
-    'sites': 'nomadgram.contrib.sites.migrations'
+    'sites': 'nomad_coders.contrib.sites.migrations'
 }
 
 # DEBUG
@@ -264,8 +264,8 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 ACCOUNT_ALLOW_REGISTRATION = env.bool(
     'DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
-ACCOUNT_ADAPTER = 'nomadgram.users.adapters.AccountAdapter'
-SOCIALACCOUNT_ADAPTER = 'nomadgram.users.adapters.SocialAccountAdapter'
+ACCOUNT_ADAPTER = 'nomad_coders.users.adapters.AccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'nomad_coders.users.adapters.SocialAccountAdapter'
 
 # Custom user app defaults
 # Select the correct user model
@@ -333,5 +333,5 @@ SOCIALACCOUNT_PROVIDERS = {
 }  
 
 REST_AUTH_REGISTER_SERIALIZERS = {
-    'REGISTER_SERIALIZER': 'nomadgram.users.serializers.SignUpSerializer'
+    'REGISTER_SERIALIZER': 'nomad_coders.users.serializers.SignUpSerializer'
 }

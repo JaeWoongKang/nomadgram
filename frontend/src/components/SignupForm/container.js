@@ -5,22 +5,23 @@ import propTypes from "prop-types";
 class Container extends Component{
     state = {
         email:"",
-        fullName : "",
+        name : "",
         username : "",
         password :""
     }
 
     static propTypes = {
-        facebookLogin: propTypes.func.isRequired
+        facebookLogin: propTypes.func.isRequired,
+        createAccount: propTypes.func.isRequired
     }
     render(){
-        const{email,fullName,username,password} = this.state;
+        const{email,name,username,password} = this.state;
         return <SignupForm 
                     handleInputChange={this._handleInputChange}
                     handleSubmit = {this._handleSubmit}
                     handleFacebookLogin = {this._handleFacebookLogin}
                     emailValue={email}
-                    fullNameValue={fullName}
+                    nameValue={name}
                     usernameValue={username} 
                     passwordValue={password}/>;
     }
@@ -33,15 +34,16 @@ class Container extends Component{
         });
     };
     _handleSubmit = event => {
-        event.preventDefault();
-        console.log(this.setState);
         //리덕스 액션
+        const { email, name, password, username } = this.state;
+        const { createAccount } = this.props;
+        createAccount(username, password, email, name);
     }
     _handleFacebookLogin = response => {
         const { facebookLogin } = this.props;
         facebookLogin(response.accessToken);
     }
-    
+
 }
 
 export default Container;

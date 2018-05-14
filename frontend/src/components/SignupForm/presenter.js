@@ -12,16 +12,16 @@ const SignupForm = (props, context) => (
       <span className={formStyles.facebookSignupLink}>
       <FacebookLogin
         appId="170159707011046"
-        autoLoad={true}
+        autoLoad={false}
         fields="name,email,picture"
         callback={props.handleFacebookLogin} 
         cssClass={formStyles.facebookLink}
         icon = "fa-facebook-official"
-        textButton={context.t("Log in with Facebook")}
+        textButton={context.t("sign up with Facebook")}
         />
       </span>
       <span className={formStyles.divider}>{context.t("or")}</span>
-      <form className={formStyles.form}>
+      <form className={formStyles.form} onSubmit={props.handleSubmit}>
         <input 
           type="email" 
           placeholder={context.t("Email")} 
@@ -31,10 +31,10 @@ const SignupForm = (props, context) => (
         />
         <input
           type="text" 
-          placeholder={context.t("Full Name")} 
+          placeholder={context.t("Name")} 
           className={formStyles.textInput} 
           onChange={props.handleInputChange}
-          name="fullname"
+          name="name"
         />
          
         <input
@@ -56,7 +56,7 @@ const SignupForm = (props, context) => (
           type="submit" 
           value={context.t("Sign up")} 
           className={formStyles.button} 
-          onSubmit={props.handleSubmit}/>
+        />
       </form>
       <p className={formStyles.terms}>
         {context.t("By signing up, you agree to our <span>Terms & Privacy Policy</span>.")}
@@ -65,7 +65,7 @@ const SignupForm = (props, context) => (
   );
   SignupForm.propTypes = {
     emailValue:propTypes.string.isRequired,
-    fullNameValue:propTypes.string.isRequired,
+    nameValue:propTypes.string.isRequired,
     usernameValue:propTypes.string.isRequired,
     passwordValue:propTypes.string.isRequired,
     handleInputChange : propTypes.func.isRequired,
