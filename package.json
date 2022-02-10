@@ -2,7 +2,7 @@
   "name": "nomad_coders",
   "version": "0.1.0",
   "dependencies": {
-    "node-sass": "^4.9.0",
+    "node-sass": "^7.0.0",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
     "reactotron-react-js": "^1.13.0",
